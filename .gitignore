@@ -2,6 +2,8 @@
 *.swp
 .project
 node_modules
+/node_modules
+/*.env
 .idea/
 .vscode/
 npm-debug.log

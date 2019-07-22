@@ -1,20 +1,9 @@
-// var container, stats;
-// var camera, controls, scene, renderer;
-// var objects = [], transformControl;
-//
-// var surfaceClickableTargets = [];
-// var loder, projector, mouse = { x:0, y:0 };
-//
-// const CLEARANCE = 5;
-// init();
-// animate();
-
 var camera, scene, renderer, controls;
 var plane;
 var mouse, raycaster, isShiftDown = false;
 
 var rollOverMesh, rollOverMaterial;
-var cubeGeo, cubeMaterial;
+var cubeGeo, cubeMaterial, selectedColor;
 
 var objects = [];
 
@@ -42,9 +31,6 @@ function init() {
 
   //cube
   cubeGeo = new THREE.BoxBufferGeometry( 50, 50, 50 );
-  // cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new  THREE.TextureLoader().load( 'textures/square-outline-textured.png' ) } );
-  cubeMaterial = new THREE.MeshPhongMaterial(
-    { color: 0xA9A9A9, specular: 0x111111, shininess: 200, opacity:0.5 } );
 
 	// grid
   var grid = new THREE.GridHelper( 1000, 20, 0x888888, 0xcccccc );
@@ -106,14 +92,11 @@ function init() {
   controls.staticMoving = true;
   controls.dynamicDampingFactor = 0.3;
 
+  // individual pixel control
   // transformControl = new THREE.TransformControls( camera, renderer.domElement );
   // scene.add(transformControl);
 
-
-
   // var materialNormal = new THREE.MeshNormalMaterial();
-  //
-  //
   // var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
   // dragControls.addEventListener( 'dragstart', function ( event ) { controls.enabled = false; } );
   // dragControls.addEventListener( 'dragend', function ( event ) { controls.enabled = true; } );
@@ -179,7 +162,34 @@ function onDocumentMouseDown( event ) {
 		// create cube
 		} else {
 
-            console.log("create cubes")
+            switch (selectedColor){
+            //
+                case 1: //white
+
+                    cubeMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
+                    break;
+                case 2: //Blue
+
+                    cubeMaterial = new THREE.MeshPhongMaterial(
+                        { color: 0x0707a8, specular: 0x111111, shininess: 200, opacity:0.5 } );
+                    break;
+                case 3: //yellow
+
+                    cubeMaterial = new THREE.MeshPhongMaterial(
+                        { color: 0xf5e618, specular: 0x111111, shininess: 200, opacity:0.5 } );
+                    break;
+                case 4: //orange
+
+                    cubeMaterial = new THREE.MeshPhongMaterial(
+                        { color: 0xfcb103, specular: 0x111111, shininess: 200, opacity:0.5 } );
+                    break;
+
+                case 5: //black
+                    cubeMaterial = new THREE.MeshPhongMaterial(
+                        { color: 0x000000, specular: 0x111111, shininess: 200, opacity:0.5 } );
+                    break;
+            }
+
 			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
 			voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );

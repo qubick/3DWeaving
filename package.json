@@ -1,9 +1,12 @@
 {
-  "name": "three",
+  "name": "3dweaving",
   "version": "0.86.0",
   "description": "JavaScript 3D library",
   "main": "build/three.js",
-  "repository": "mrdoob/three.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdoob/three.js.git"
+  },
   "jsnext:main": "build/three.module.js",
   "module": "build/three.module.js",
   "files": [
@@ -19,8 +22,6 @@
     "examples/fonts"
   ],
   "directories": {
-    "doc": "docs",
-    "example": "examples",
     "test": "test"
   },
   "eslintConfig": {

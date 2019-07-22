@@ -45,54 +45,27 @@
 				<script src="./js/renderers/Projector.js"></script>
 
 				<script src="./build/editor.js"></script>
+				<script src="./build/UIelements.js"></script>
+				<script src="./build/eventHandler.js"></script>
 
-				<!-- <div id="gallery">
-
-					<br/><br/><br/>
-					<br/><br/>
-						Thing No.: <input id="thingNo" type="text" onchange="ReturnThingNo(event)"></input>
+				<div id="gallery">
 
 					<br/><br/>
-					Is this Augmenting Fabrication?<br/>
-					<select onchange="ReturnAugmentationTrueFalse(event)">
-						<option value="0">Select your answer</option>
-						<option value="1">Yes</option>
-						<option value="2">No</option>
-					</select>
-
-					<br/><br/>
-					<div id="augmentation-type"></div>
-
-						<br/><br/>
-						<div id="augmentation-target"></div>
-
-						<br/><br/>
-						<div id="searchTarget"></div>
-						<div id="paramlocation"></div>
+					<div id="selected-color"></div>
 				</div>
-			<input id="fileInput" type="file" name="files[]" style="visibility:hidden" /-->
+			<!-- <input id="fileInput" type="file" name="files[]" style="visibility:hidden"> -->
 			</div>
 		</body>
-		<!-- <script type="text/javascript">
+		<script type="text/javascript">
 
-			$('#augmentation-type').ddslick({
-				data: augmentation_type,
+			$('#selected-color').ddslick({
+				data: thread_color,
 				width: 300,
-				selectText: "What is the type of this augmentation?",
+				selectText: "Select Color",
 				imagePosition: "right",
 				onSelected: function(evt) {
-					ReturnTypeOfAugmentation(evt.selectedData)
+					ReturnThreadColor(evt.selectedData)
 				}
 			});
-
-			$('#augmentation-target').ddslick({
-				data: augmentation_target,
-				width: 300,
-				selectText: "What is the target augmented objects?",
-				imagePosition: "right",
-				onSelected: function(evt) {
-					ReturnTargetObjectAugmenting(evt.selectedData)
-				}
-			});
-		</script> -->
+		</script>
 </html>
