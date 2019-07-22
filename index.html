@@ -1,18 +1,15 @@
 <!doctype html>
 <html lang="en">
 		<head>
-				<meta charset="utf-8">
-				<title>Cadget</title>
+			<meta charset="utf-8">
+			<title>Interactive Weaving</title>
 
 
-				<!-- Latest compiled and minified CSS -->
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
 
-				<!-- jQuery library -->
-				<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-				<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-				<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-				<script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
+			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			<script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
 
 		</head>
 
@@ -23,15 +20,13 @@
 				height: 100%;
 				top:0;
 				left:0;
-				/* background-color: white; */
 				opacity: 1;
-				/*overflow: auto;*/
 				overflow-y: scroll !important;
 			}
 		</style>
 
 		<body>
-			<div id="container" left="150px" top="0px" class="droppable">
+			<div id="container" left="0px" top="0px">
 				<script src="./src/Three.js"></script>
 				<script src="./src/csg.js"></script>
 				<script src="./src/ThreeCSG.js"></script>
@@ -49,20 +44,11 @@
 				<script src="./js/controls/TrackballControls.js"></script>
 				<script src="./js/renderers/Projector.js"></script>
 
-				<script src="./build/augment_imgs.js"></script>
-				<script src="./build/eventHandler.js"></script>
-				<script src="./build/object_augmented.js"></script>
-				<script src="./build/paramUI.js"></script>
 				<script src="./build/editor.js"></script>
-				<script src="./build/get2DCutSize.js"></script>
-				<script src="./build/materials.js"></script>
 
-
-				<div id="gallery">
+				<!-- <div id="gallery">
 
 					<br/><br/><br/>
-					<!-- <input id="fileInput" type="file" name="files[]" onclick="FileSelectFromUserLocal"/> -->
-					<button onclick="FileSelectFromServer()">Load 3D Object to Label</button>
 					<br/><br/>
 						Thing No.: <input id="thingNo" type="text" onchange="ReturnThingNo(event)"></input>
 
@@ -77,41 +63,36 @@
 					<br/><br/>
 					<div id="augmentation-type"></div>
 
-					<br/><br/>
-					<div id="augmentation-target"></div>
+						<br/><br/>
+						<div id="augmentation-target"></div>
 
-					<br/><br/>
-					<div id="searchTarget"></div>
-					<div id="paramlocation"></div>
+						<br/><br/>
+						<div id="searchTarget"></div>
+						<div id="paramlocation"></div>
+				</div>
+			<input id="fileInput" type="file" name="files[]" style="visibility:hidden" /-->
 			</div>
-
-			<script type="text/javascript">
-
-				// document.getElementById('fileInput').addEventListener('change', FileSelectFromUserLocal, false);
-				// document.getElementById('loadFileBtn').addEventListener('change', FileSelectFromServer, false);
-				$('#augmentation-type').ddslick({
-					data: augmentation_type,
-					width: 300,
-					selectText: "What is the type of this augmentation?",
-					imagePosition: "right",
-					onSelected: function(evt) {
-						ReturnTypeOfAugmentation(evt.selectedData)
-					}
-				});
-
-				// document.getElementById('loadFileBtn').addEventListener('change', FileSelectFromServer, false);
-				$('#augmentation-target').ddslick({
-					data: augmentation_target,
-					width: 300,
-					selectText: "What is the target augmented objects?",
-					imagePosition: "right",
-					onSelected: function(evt) {
-						ReturnTargetObjectAugmenting(evt.selectedData)
-					}
-				});
-			</script>
-
-			<input id="fileInput" type="file" name="files[]" style="visibility:hidden" />
-
 		</body>
+		<!-- <script type="text/javascript">
+
+			$('#augmentation-type').ddslick({
+				data: augmentation_type,
+				width: 300,
+				selectText: "What is the type of this augmentation?",
+				imagePosition: "right",
+				onSelected: function(evt) {
+					ReturnTypeOfAugmentation(evt.selectedData)
+				}
+			});
+
+			$('#augmentation-target').ddslick({
+				data: augmentation_target,
+				width: 300,
+				selectText: "What is the target augmented objects?",
+				imagePosition: "right",
+				onSelected: function(evt) {
+					ReturnTargetObjectAugmenting(evt.selectedData)
+				}
+			});
+		</script> -->
 </html>
